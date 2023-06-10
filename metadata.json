@@ -1,0 +1,9 @@
+{
+  "name": "DeadDetector",
+  "description": "Notifies you if you rejoin a lobby you recently killed a miniboss in",
+  "creator": "Stuffy",
+  "helpmessage": "&eCommands: &7none",
+  "entry": "index.js",
+  "version": "1.0.0",
+  "changelog": ""
+}
