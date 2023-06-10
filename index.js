@@ -6,7 +6,6 @@ bossStrings = {"ASHFANG": "&8Ashfang", "BARBARIAN DUKE X": "&cBarbarian Duke X",
 
 
 register("chat", (spacer, boss) => {
-  console.log("[DD] " + boss + " Boss Killed");
   if(!(boss in bossStrings)){
     return;
   }
@@ -22,11 +21,9 @@ register("chat", (spacer, boss) => {
 }).setCriteria("&r&r&r${spacer}&r&6&l${boss} DOWN!&r");
 
 register("chat", (serverId) => {
-  console.log("[DD] Server ID: " + serverId);
   currentServer = serverId;
   if(serverId in serverLastKilled){
     for (key in serverLastKilled[serverId]) {
-      console.log("[DD] " + key + " was killed " + (Date.now() - serverLastKilled[serverId][key]) + "ms ago");
       if(Date.now() - value < 121135){
         timeSince = Date.now() - serverLastKilled[serverId][key];
         remainingTime = 121135 - timeSince;
@@ -36,11 +33,6 @@ register("chat", (serverId) => {
     }
   }
 }).setCriteria("&7Sending to server ${serverId}...&r")
-
-register("command", () => {
-  ChatLib.chat("Current Server: " + currentServer);
-  ChatLib.chat("Last Killed: " + JSON.stringify(serverLastKilled));
-}).setName("dddebug");
 
 function cleanDict(){
   for (const [key, value] of Object.entries(serverLastKilled)) {
